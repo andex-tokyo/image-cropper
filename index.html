@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>プロフィール画像クロップツール</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>プロフィール画像クロップツール</h1>
+<p>下のボタンから画像を選択してください。</p>
+
+<input type="file" id="image-input" accept="image/*">
+
+<div class="editor-container">
+  <div class="crop-area">
+    <img id="image-to-crop">
+  </div>
+  <div class="preview-area">
+    <p>プレビュー</p>
+    <div class="preview-circle"></div>
+  </div>
+</div>
+
+<button id="crop-button">クロップしてダウンロード</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -2,28 +2,69 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>プロフィール画像クロップツール</title>
+  <title>画像編集ツール</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>プロフィール画像クロップツール</h1>
+<h1>画像編集ツール</h1>
 <p>下のボタンから画像を選択してください。</p>
 
 <input type="file" id="image-input" accept="image/*">
+
+<!-- 機能選択ボタン -->
+<div class="function-selector">
+  <button id="profile-mode" class="mode-button active">プロフィール画像クロップ</button>
+  <button id="logo-mode" class="mode-button">ロゴ統一化ツール</button>
+</div>
 
 <div class="editor-container">
   <div class="crop-area">
     <img id="image-to-crop">
   </div>
   <div class="preview-area">
-    <p>プレビュー</p>
-    <div class="preview-circle"></div>
+    <!-- プロフィール用プレビュー -->
+    <div id="profile-preview" class="preview-section">
+      <p>プレビュー</p>
+      <div class="preview-circle"></div>
+    </div>
+
+    <!-- ロゴ用プレビューと調整コントロール -->
+    <div id="logo-preview" class="preview-section" style="display: none;">
+      <p>プレビュー (200×1000px)</p>
+      <div class="preview-logo-container">
+        <canvas id="preview-canvas" width="100" height="20"></canvas>
+        <p class="size-note">※実際の1/10サイズで表示</p>
+      </div>
+
+      <!-- 調整コントロール -->
+      <div class="logo-controls">
+        <div class="control-group">
+          <label>画像サイズ:</label>
+          <input type="range" id="size-slider" min="5" max="150" value="80" step="1">
+          <span id="size-value">80%</span>
+        </div>
+        <div class="control-group">
+          <label>横位置:</label>
+          <input type="range" id="x-slider" min="0" max="100" value="50" step="1">
+          <span id="x-value">50%</span>
+        </div>
+        <div class="control-group">
+          <label>縦位置:</label>
+          <input type="range" id="y-slider" min="0" max="100" value="50" step="1">
+          <span id="y-value">50%</span>
+        </div>
+        <div class="control-group">
+          <button id="reset-button">リセット</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <button id="crop-button">クロップしてダウンロード</button>
+<button id="logo-button" style="display: none;">ロゴ画像をダウンロード (200×1000px)</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
 <script src="script.js"></script>

@@ -3,33 +3,122 @@ body {
     padding: 20px;
 }
 
+.function-selector {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.mode-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.mode-button.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.mode-button:hover {
+    background: #f0f0f0;
+}
+
+.mode-button.active:hover {
+    background: #0056b3;
+}
+
 .editor-container {
     display: flex;
-    gap: 30px; /* 編集エリアとプレビューの間隔 */
+    gap: 30px;
     margin-top: 20px;
 }
 
 .crop-area {
-    width: 500px; /* 編集エリアの最大幅 */
+    width: 500px;
     height: auto;
 }
 
 #image-to-crop {
-    max-width: 100%; /* 親要素の幅に合わせて画像を表示 */
+    max-width: 100%;
 }
 
-/* プレビューを円形にするためのスタイル */
+.preview-area {
+    min-width: 300px;
+}
+
+/* プロフィール用プレビュー（円形） */
 .preview-circle {
-    width: 200px;  /* プレビューの大きさ */
+    width: 200px;
     height: 200px;
-    border-radius: 50%; /* 正円にする */
-    overflow: hidden;   /* はみ出した部分を隠す */
+    border-radius: 50%;
+    overflow: hidden;
     border: 2px solid #ccc;
 }
 
-#crop-button {
+/* ロゴ用プレビュー */
+.preview-logo-container {
+    margin-bottom: 20px;
+}
+
+#preview-canvas {
+    border: 2px solid #ccc;
+    background:
+            repeating-linear-gradient(
+                    45deg,
+                    #f0f0f0,
+                    #f0f0f0 5px,
+                    #fff 5px,
+                    #fff 10px
+            ); /* 透過部分を示すチェッカーボード */
+}
+
+/* ロゴ調整コントロール */
+.logo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-group label {
+    min-width: 60px;
+    font-weight: bold;
+}
+
+.control-group input[type="range"] {
+    flex: 1;
+    min-width: 150px;
+}
+
+.control-group span {
+    min-width: 40px;
+    text-align: right;
+    font-family: monospace;
+}
+
+#crop-button, #logo-button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#crop-button:hover, #logo-button:hover {
+    background: #218838;
 }
